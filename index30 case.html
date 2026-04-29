@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript</title>
+</head>
+
+<body>
+<script type="text/javascript">
+    var fruits = [];
+    
+    for (var i = 0; ; i++) {
+        var input = prompt('Masukkan nama buah (ketik "stop" untuk selesai):');
+        if (input === 'stop') {
+            break;
+        }
+        fruits[fruits.length] = input;
+    }
+
+    console.log("Program dihentikan. Berikut adalah daftar buahmu:");
+    console.log(fruits);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript</title>
+</head>
+
+<body>
+<script type="text/javascript">
+    var input;
+    for(var counter = 1; counter <= 3; counter++) {
+        input = prompt('Name your pokemon: ');
+        switch(input) {
+            case 'pikachu':
+            case 'raichu':
+            case 'elekid':
+                console.log(input + ' is an electric type pokemon');
+                break;
+            case 'squirtle':
+            case 'lapras':
+            case 'greninja':
+                console.log(input + ' is a water type pokemon');
+                break;
+        }
+    }
+</script>
+
+</body>
+</html>

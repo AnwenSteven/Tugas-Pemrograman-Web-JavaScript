@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript</title>
+</head>
+
+<body>
+<script type="text/javascript">
+    var input;
+    var electric = '';
+    var water ='';
+    for(var counter = 1; counter <= 3; counter++) {
+        input = prompt('Name your pokemon: ');
+        switch(input) {
+            case 'pikachu':
+            case 'raichu':
+            case 'elekid':
+                electric = electric.concat(input, ", ");
+                break;
+            case 'squirtle':
+            case 'lapras':
+            case 'greninja':
+                water = water.concat(input, ", ");
+                break;
+        }
+    }
+
+    console.log('list of eletric : ' + electric);
+    console.log('list of water : ' + water);
+</script>
+
+</body>
+</html>
