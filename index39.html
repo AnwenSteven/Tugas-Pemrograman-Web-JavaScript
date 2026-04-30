@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <button onclick="ubahWarna()">Ganti Warna Acak</button>
+    </div>
+
+    <script>
+        const hexData = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+        const textWarna = document.getElementById("colorText");
+
+        function ubahWarna() {
+             kodeWarnaHex = "#";
+
+            for (var i = 0; i < 6; i++) {
+                var acak = Math.floor(Math.random() * hexData.length);
+                
+                kodeWarnaHex += hexData[acak];
+            }
+
+            document.body.style.backgroundColor = kodeWarnaHex;
+        }
+    </script>
+
+</body>
+</html>

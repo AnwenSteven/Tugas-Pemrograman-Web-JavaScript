@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript</title>
+</head>
+<body>
+
+    <h1 id="layarAngka">0 : 00</h1>
+
+    <button onclick="mulai()">Start</button>
+    <button onclick="berhenti()">Stop</button>
+    <button onclick="ulang()">Reset</button>
+
+    <script type="text/javascript">
+        var detik = 0;
+        var milidetik = 0;
+        var mesinTimer; 
+
+        function mulai() {
+            clearInterval(mesinTimer);
+
+            mesinTimer = setInterval(function() {
+                
+                milidetik += 10;
+
+                if (milidetik === 1000) {
+                    milidetik = 0;
+                    detik++; 
+                }
+
+                document.getElementById("layarAngka").innerHTML = detik + " : " + milidetik; 
+                
+            }, 10); 
+        }
+
+        function berhenti() {
+            clearInterval(mesinTimer);
+        }
+
+        function ulang() {
+            clearInterval(mesinTimer);
+            detik = 0;
+            milidetik = 0;
+            
+            document.getElementById("layarAngka").innerHTML = "0 : 00";
+        }
+    </script>
+
+</body>
+</html>

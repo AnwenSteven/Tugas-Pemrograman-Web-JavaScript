@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript</title>
+</head>
+<body>
+
+    
+    <p id="quoteDisplay">Klik tombol di bawah untuk mendapatkan kutipan!</p>
+    
+    <button onclick="generateQuote()">Munculkan Kutipan</button>
+
+    <script type="text/javascript">
+        var quotes = [
+            "When I wrote this code, only God and I understood what I did. Now only God knows.",
+            "99 little bugs in the code. 99 little bugs in the code. Take one down, patch it around. 127 little bugs in the code ...",
+            "Why do Java programmers have to wear glasses? Because they don't C#.",
+            "Q: What did the Java code say to the C code? A: You've got no class.",
+            "Computers are good at following instructions but not at reading your mind.",
+            "How many programmers does it take to change a light bulb? None, that's a hardware problem.",
+            "Copy-and-Paste was programmed by programmers for programmers actually.",
+            "Software and cathedrals are much the same - first we build them, then we pray.",
+            "Remember that there is no code faster than no code.",
+            "Don't worry if it doesn't work right. If everything did, you'd be out of a job."
+        ];
+
+        function generateQuote() {
+            var randomIndex = Math.floor(Math.random() * quotes.length);
+
+            var selectedQuote = quotes[randomIndex];
+
+            document.getElementById("quoteDisplay").innerHTML = selectedQuote;
+        }
+    </script>
+
+</body>
+</html>

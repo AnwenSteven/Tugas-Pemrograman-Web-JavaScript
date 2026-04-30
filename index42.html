@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript</title>
+</head>
+<body>
+
+    <div id="clockDisplay"></div>
+
+    <script type="text/javascript">
+        function tampilkanJam() {
+            var waktuSekarang = new Date();
+            
+            var jam = waktuSekarang.getHours();
+            var menit = waktuSekarang.getMinutes();
+            var detik = waktuSekarang.getSeconds();
+
+            if (jam < 10) { jam = "0" + jam; }
+            if (menit < 10) { menit = "0" + menit; }
+            if (detik < 10) { detik = "0" + detik; }
+
+            var waktuTeks = jam + ":" + menit + ":" + detik;
+
+            document.getElementById("clockDisplay").innerHTML = waktuTeks;
+        }
+
+        tampilkanJam();
+
+        setInterval(tampilkanJam, 1000);
+    </script>
+
+</body>
+</html>

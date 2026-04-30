@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript</title>
+    <style>
+
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        .captcha-box { 
+            display: inline-block; 
+            padding: 20px; 
+            border: 2px solid #ccc; 
+            background-color: #f9f9f9; 
+            border-radius: 10px;
+        }
+        .captcha-math {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="captcha-box">
+        <h3>Verifikasi Keamanan</h3>
+        <p>Selesaikan perhitungan berikut untuk Login:</p>
+        
+        <div class="captcha-math">
+            <img id="imgAngka1" src="" height="400" alt="Angka 1">
+            
+            <span id="operatorText">?</span>
+            
+            <img id="imgAngka2" src="" height="400" alt="Angka 2">
+            
+            <span>=</span>
+            
+            <input type="number" id="inputJawaban" placeholder="?" style="width: 60px; font-size: 20px; text-align: center;">
+        </div>
+
+        <button onclick="cekCaptcha()" style="padding: 10px 20px; font-size: 16px;">Verifikasi & Login</button>
+        
+        <h4 id="pesanHasil"></h4>
+    </div>
+
+    <script type="text/javascript">
+        var gambarAngka = [
+            "https://cdn.pixabay.com/photo/2016/02/05/15/12/zero-1181084_1280.png",
+            "https://cdn.pixabay.com/photo/2025/01/03/12/37/one-9307772_1280.png",
+            "https://cdn.pixabay.com/photo/2025/01/03/12/37/two-9307771_1280.png", 
+            "https://cdn.pixabay.com/photo/2016/02/08/12/25/number-1186419_1280.png", 
+            "https://cdn.pixabay.com/photo/2025/01/03/12/36/four-9307769_1280.png", 
+            "https://cdn.pixabay.com/photo/2016/06/29/16/31/numbers-1487229_1280.png",
+            "https://cdn.pixabay.com/photo/2025/01/03/12/36/six-9307767_1280.png",  
+            "https://cdn.pixabay.com/photo/2015/12/18/09/45/the-number-of-1098383_1280.png", 
+            "https://cdn.pixabay.com/photo/2016/02/08/12/25/number-1186414_1280.png", 
+            "https://cdn.pixabay.com/photo/2017/03/08/13/17/number-2126724_1280.jpg"  
+        ];
+
+        var jawabanBenar = 0;
+
+        function generateCaptcha() {
+            var angka1 = Math.floor(Math.random() * 10);
+            var angka2 = Math.floor(Math.random() * 10);
+
+            document.getElementById("imgAngka1").src = gambarAngka[angka1];
+            document.getElementById("imgAngka2").src = gambarAngka[angka2];
+
+            var pilihOperator = Math.floor(Math.random() * 2);
+            var elemenOperator = document.getElementById("operatorText");
+
+            if (pilihOperator === 0) {
+                elemenOperator.innerHTML = "+";
+                jawabanBenar = angka1 + angka2;
+            } else {
+                elemenOperator.innerHTML = "-";
+                jawabanBenar = angka1 - angka2;
+            }
+
+            document.getElementById("inputJawaban").value = "";
+            document.getElementById("pesanHasil").innerHTML = "";
+        }
+
+        generateCaptcha();
+
+        function cekCaptcha() {
+            var tebakanUser = document.getElementById("inputJawaban").value;
+            var elemenPesan = document.getElementById("pesanHasil");
+
+            if (tebakanUser === "") {
+                elemenPesan.innerHTML = "Harap isi jawabannya terlebih dahulu!";
+                elemenPesan.style.color = "orange";
+                return;
+            }
+
+            var tebakanAngka = parseInt(tebakanUser);
+
+            if (tebakanAngka === jawabanBenar) {
+                elemenPesan.innerHTML = "CAPTCHA is VALID!";
+                elemenPesan.style.color = "green";
+            } else {
+                elemenPesan.innerHTML = "CAPTCHA is INVALID!";
+                elemenPesan.style.color = "red";
+                setTimeout(generateCaptcha, 1500);
+            }
+        }
+    </script>
+
+</body>
+</html>
